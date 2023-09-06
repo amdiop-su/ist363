@@ -25,3 +25,7 @@ menuBtn.addEventListener("click", function() {
     //console.log("menu button has been clicked");
     overlay.classList.add("active");
 }); // end of menuBtn click event
+
+closeBtn.addEventListener("click", function() {
+    overlay.classList.remove("active");
+}); // end of closeBtn click event
