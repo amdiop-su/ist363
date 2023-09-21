@@ -12,13 +12,18 @@ const myCity = "New York";
 const introduction = `Hi, my name is ${myName}, I 
 am ${myAge} years old and I live in ${myCity}.`;
 
-console.log(introduction);
+// console.log(introduction);
 
 
 // 2. methods
 const menuBtn = document.getElementById("menuBtn");
-const overlay = document.getElementById("overlay")
-console.log(menuBtn);
+const closeBtn = document.getElementById("closeBtn");
+const overlay = document.getElementById("overlay");
+const coffeeList = document.getElementById("coffeeList");
+const ascendingBtn = document.getElementById("ascendingBtn");
+const descendingBtn = document.getElementById("descendingBtn");
+
+
 
 // "event name", callback function
 menuBtn.addEventListener("click", function() {
@@ -29,6 +34,30 @@ menuBtn.addEventListener("click", function() {
 closeBtn.addEventListener("click", function() {
     overlay.classList.remove("active");
 }); // end of closeBtn click event
+
+function purgeList () {
+    coffeeList.innerHTML = "";
+}
+
+function sortList(sortDirection) {
+    console.log({sortDirection});
+}
+
+
+
+
+ascendingBtn.addEventListener("click", function() {
+    console.log("ascending buttom has been clicked");
+    purgeList();
+    sortList("ascending");
+}); // end  of ascendingBtn click event
+
+descendingBtn.addEventListener("click", function() {
+    console.log("ascending buttom has been clicked");
+    purgeList();
+    sortList("descending");
+}); // end  of descendingBtn click event
+
 
 // arrays and objects
 
@@ -92,6 +121,8 @@ document.body.appendChild(coffeeObjHeadline);
 // ];
 // console.log(coffees[2]);
 
+
+
 function buildTextElement(element, className, content) {
     const newElement = document.createElement(element);
     newElement.classList.add(className);
@@ -99,16 +130,29 @@ function buildTextElement(element, className, content) {
     return newElement;
 }
 
-coffees.forEach(function(coffee) {
+const sortedCoffees = [...coffees].sort(function(a,b) {    
+    if (a.title < b.title) {
+        return -1;
+    }
+    if (a.title > b.title) {
+        return 1;
+    }
+    if (a.title === b.title) {
+        return 0;
+    }
+})
+    
+
+sortedCoffees.forEach(function(coffee) {
     // 1. deconstrust the coffee object
-    const { name, price, description, image } = coffee;
+    const { title, price, description, image } = coffee;
 
     // 2. create THE HTML elements
     const coffeeArticle = document.createElement("article");
     coffeeArticle.classList.add("coffee-item");
 
     const coffeeImage = document.createElement("img");
-    // coffeeImage.src = `images/${image.fileName}`;
+    coffeeImage.src = `images/${image.fileName}`;
     coffeeImage.width = image.width;
     coffeeImage.height = image.height;
     coffeeImage.alt = image.altText;
@@ -117,11 +161,12 @@ coffees.forEach(function(coffee) {
     // coffeeTitle.classList.add("coffee-title");
     // coffeeTitle.textContent = title;
 
-    const coffeeTitle = buildTextElement();
+    const coffeeTitle = buildTextElement("h2","coffee-title",title);
 
     // const coffeePrice = document.createElement("h3");
     // coffeePrice.classList.add("coffee-price");
     // coffeePrice.textContent = `$${price}`;
+
     const coffeePrice = buildTextElement("h3", "coffee-price", `$${price}`)
 
     const coffeeDescription = document.createElement("p");
@@ -130,12 +175,12 @@ coffees.forEach(function(coffee) {
 
 
     // 3. append the element to the parents article
-    // coffeeArticle.appendChild(coffeeImage);
+    coffeeArticle.appendChild(coffeeImage);
     coffeeArticle.appendChild(coffeeTitle);
     coffeeArticle.appendChild(coffeePrice);
     coffeeArticle.appendChild(coffeeDescription);
 
     // 4. append the artice to the body
-    document.body.appendChild(coffeeArticle);
+    coffeeList.appendChild(coffeeArticle);
 
 }); // end of coffees forEach method
