@@ -53,15 +53,15 @@ header h1 {
   color: white;
   font-family: Georgia;
 }
-header btn {
+header .btn {
   background-color: pink;
   padding: 1rem;
   border: 0;
 }
-header btn:hover {
+header .btn:hover {
   background-color: brown;
 }
-header btn.active {
+header .btn.active {
   background-color: yellow;
 }
 
