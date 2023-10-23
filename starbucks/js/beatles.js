@@ -1,4 +1,4 @@
-console.log("beatles!!!!")
+//console.log("beatles!!!!");
 
 // Video outline
 
@@ -6,16 +6,16 @@ console.log("beatles!!!!")
 
 // old function syntax
 // function calculateAverage(a,b) {
-//      const result = (a + b) / 2;
-//      returnn result;
+//     const result = (a + b) / 2;
+//     return result;
 // }
 // function calculateAverage(a,b) {
-//        return (a + b) / 2;
+//     return (a + b) / 2;
 // }
 
 // arrow function syntax
 const calculateAverage = (a,b) => {
-    return (a + b) / 2
+    return (a + b) / 2;
 }
 
 console.log(calculateAverage(4,27));
@@ -23,7 +23,7 @@ console.log(calculateAverage(4,27));
 const addTen = (num) => {
     return num + 10;
 }
-// const addTen = num => num + 10;
+//const addTen = num => num + 10;
 
 console.log(addTen(36));
 

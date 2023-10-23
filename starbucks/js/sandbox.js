@@ -1,25 +1,25 @@
-console.log("sandbox.js is working");
+//console.log("sandbox.js is working");
 
 const cars = [
     {
         name: "Ford",
-        price: 20000,
+        price: 20000,   
     },
     {
         name: "Chevy",
-        price: 25000,
+        price: 25000,   
     },
     {
         name: "BMW",
-        price: 30000,
+        price: 30000,   
     },
     {
         name: "Audi",
-        price: 35000,
+        price: 35000,   
     },
     {
         name: "Ferrari",
-        price: 40000,
+        price: 40000,   
     },
 ]; // end of cars array
 
@@ -27,8 +27,7 @@ const cars = [
 
 const filteredCars = cars.filter((car) => {
     const { price } = car;
-    return price < 25000;
+    return price > 25000;
 }); // end of filter method
 
-console.log({filteredCars});
 console.log({filteredCars});

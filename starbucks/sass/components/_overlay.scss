@@ -1,22 +1,23 @@
 @use '../abstracts/vars';
 
-.overlay{
-    background-color:vars.$color_green;
+.overlay {
+    background-color: vars.$color_green;
     width: 100vw;
     height: 100vh;
-    position:fixed;
+    position: fixed;
     top: 0;
-    left:-100vw;
-    z-index:1000;
+    left: -100vw;
+    z-index: 1000;
     transition-property: all;
-    transition-duration: .25s;
+    transition-duration: .5s;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     padding: 2rem;
-    .logo{
-        width:100px;
-        height:100px;
+    .logo {
+        width: 8rem;
+        height: auto;
         margin-bottom: 2rem;
         position: relative;
         left: -1rem;
@@ -25,32 +26,26 @@
         transition-delay: .25s;
         transition-duration: .5s;
     }
-    
-
+}
+.overlay.active {
+    left: 0;
 }
 
-.overlay.active{
-    left:0;
-    transition-duration:1s;
-}
-
-
-
-/* transition delay on overlay */
-.overlay.active .nav--mobile ul li{
+.overlay.active .nav--mobile ul li {
+    /* background-color: red; */
     opacity: 1;
     left: 0;
 }
-.overlay.active .nav--mobile ul li:nth-child(1){
-    transition-delay: 1s;
+.overlay.active .nav--mobile ul li:nth-child(1) {
+    transition-delay: .5s;
 }
-.overlay.active .nav--mobile ul li:nth-child(2){
-    transition-delay: 1.4s;
+.overlay.active .nav--mobile ul li:nth-child(2) {
+    transition-delay: .6s;
 }
-.overlay.active .nav--mobile ul li:nth-child(3){
-    transition-delay: 1.8s;
+.overlay.active .nav--mobile ul li:nth-child(3) {
+    transition-delay: .7s;
 }
-.overlay.active .nav--mobile .logo{
+.overlay.active .logo {
     left: 0;
     opacity: 1;
 }
